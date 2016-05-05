@@ -20,7 +20,7 @@ public class UserAction implements Action {
 	private String picUrl;//上传路径
 	private String rName;//上传菜名
 	private String content;//上传菜的制作方法
-	private int state;//操作成功与否  1-成功  2-失败
+	private String state;//操作成功与否  succeed-成功  failed-失败
 	private int uid1;//被关注者id
 	private int rid;//菜谱id
 	public int getRid() {
@@ -48,12 +48,7 @@ public class UserAction implements Action {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-	public int getState() {
-		return state;
-	}
-	public void setState(int state) {
-		this.state = state;
-	}
+
 	public String getPicUrl() {
 		return picUrl;
 	}

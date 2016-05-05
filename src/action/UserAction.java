@@ -14,15 +14,15 @@ import com.opensymphony.xwork2.ActionContext;
 import domain.User;
 
 public class UserAction implements Action {
-	private String name;//ÓÃ»§Ãû
-	private String passwd;//ÓÃ»§ÃÜÂë
-	private int uid;//ÓÃ»§id
-	private String picUrl;//ÉÏ´«Â·¾¶
-	private String rName;//ÉÏ´«²ËÃû
-	private String content;//ÉÏ´«²ËµÄÖÆ×÷·½·¨
-	private String state;//²Ù×÷³É¹¦Óë·ñ  succeed-³É¹¦  failed-Ê§°Ü
-	private int uid1;//±»¹Ø×¢Õßid
-	private int rid;//²ËÆ×id
+	private String name;//ï¿½Ã»ï¿½ï¿½ï¿½
+	private String passwd;//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int uid;//ï¿½Ã»ï¿½id
+	private String picUrl;//ï¿½Ï´ï¿½Â·ï¿½ï¿½
+	private String rName;//ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String content;//ï¿½Ï´ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String state;//ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½  succeed-ï¿½É¹ï¿½  failed-Ê§ï¿½ï¿½
+	private int uid1;//ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½id
+	private int rid;//ï¿½ï¿½ï¿½ï¿½id
 	public int getRid() {
 		return rid;
 	}
@@ -78,6 +78,13 @@ public class UserAction implements Action {
 	}
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	@Override
 	public String execute() throws Exception {

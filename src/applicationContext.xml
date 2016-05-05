@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- 指定连接数据库的驱动 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<!-- 指定连接数据库的URL -->
+		<property name="jdbcUrl" value="jdbc:mysql://45.78.1.145:3306/mydb"/>
+		<!-- 指定连接数据库的用户名 -->
+		<property name="user" value="root"/>
+		<!-- 指定连接数据库的密码 -->
+		<property name="password" value="msp2810"/>
+		<!-- 指定连接数据库连接池的最大连接数 -->
+		<property name="maxPoolSize" value="20"/>
+		<!-- 指定连接数据库连接池的最小连接数 -->
+		<property name="minPoolSize" value="1"/>
+		<!-- 指定连接数据库连接池的初始化连接数 -->
+		<property name="initialPoolSize" value="1"/>
+		<!-- 指定连接数据库连接池的连接的最大空闲时间 -->
+		<property name="maxIdleTime" value="10"/>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>domain/Recipe.hbm.xml</value>
+				<value>domain/Steps.hbm.xml</value>
+				<value>domain/Concern.hbm.xml</value>
+				<value>domain/Favorite.hbm.xml</value>
+				<value>domain/User.hbm.xml</value>
+				<value>domain/Comment.hbm.xml</value>
+			</list>
+		</property>
+    </bean>
+    <bean id="userDao" class="dao.impl.UserDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="userService" class="service.impl.UserService">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+    <bean id="userAction" class="action.UserAction">
+        <property name="userService" ref="userService"></property>
+    </bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" /></beans>

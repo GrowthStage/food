@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+*{
+	margin:0px;
+	padding:0px;
+}
+li{
+	list-style-type:none;
+}
+a{
+	text-decoration:none;
+}
+/*公共头部*/
+.headBox{
+	width:1200px;
+	height:100px;
+	margin:0 auto 0;
+	text-align:center;
+	background-color:#009100;
+}
+.headBox span{
+	font-size:60px;
+	font-family:楷体;
+	color:#FFF;
+	line-height:100px;
+}
+/*公共内容部分*/
+.contentBox{
+	width:1200px;
+	margin:0 auto 0;
+}
+/*公共左边栏*/
+.leftNav{
+	width:250px;
+	height:300px;
+	border:1px solid #E0E0E0;
+	float:left;
+}
+.leftNav input{
+	width:80%;
+	height:40px;
+	text-align:center;
+	font-size:22px;
+	background-color:#00A600;
+	color:#FFF;
+	font-family:宋体;
+	margin:0px 25px 0;
+}
+.leftNav ul{
+	width:100%;
+	text-align:center;
+	margin:0px 0;
+}
+.leftNav ul li{
+	width:200px;
+	height:40px;
+	border:1px solid #E0E0E0;
+	margin:5 auto 0;
+	line-height:40px;
+	background-color:#F0F0F0;
+}
+.leftNav ul li a{
+	color:#6C6C6C;
+	display:block;
+}
+/*公共右边栏*/
+.rightBox{
+	width:950px;
+	height:400px;
+	border:1px solid #E0E0E0;
+	margin:0 250px;
+}
+/*公共尾部*/
+.footBox{
+	clear:both;
+	width:1200px;
+	height:70px;
+	margin:0 auto 0;
+	text-align:center;
+	line-height:80px;
+	background-color:#BEBEBE;
+	color:#FFF;
+}

@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+.contentBox{
+	width:1200px;
+	height:500px;
+	margin:0 auto 0;
+	position:relative;
+	text-align:center;
+	border:1px solid #FFF;
+}
+.loginBox{
+	width:300px;
+	height:300px;
+	margin:50px auto 0px;
+	border:1px solid #FFF;
+	text-align:center;
+}
+.loginBox ul{
+	margin:50px auto 0px;
+}
+.loginBox ul li{
+	font-size:23px;
+	margin:20px 0;
+	color:#FFF;
+}
+.loginBox ul li input{
+	width:200px;
+	height:30px;
+}
+.submit{
+	width:150px;
+	height:40px;
+	background-color:#009100;
+	color:#FFF;
+	cursor:pointer;
+	font-size:20px;
+	margin:30px 0;
+}

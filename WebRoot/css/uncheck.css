@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+.uncheckBox{
+	width:905px;
+	height:100px;
+	margin:0 auto 0;
+	border:1px solid #CCC;
+}
+.uncheckBox img{
+	float:left;
+	width:200px;
+	height:100%;
+}
+.content{
+	width:500px;
+	height:100%;
+	float:left;
+	border-left:1px solid #CCC;
+	border-right:1px solid #CCC;
+}
+.opBtns{
+	width:195px;
+	height:100%;
+	float:left;
+}
+.opBtns a img{
+	width:30px;
+	height:30px;
+	margin:40px 25px;
+	float:left;
+}
+.opBtns a img:hover{
+	border-bottom:1px solid #CCC;
+}

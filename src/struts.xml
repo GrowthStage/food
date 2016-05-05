@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <!-- 将对象交给spring管理 -->
+    <constant name="struts.objectFactory" value="spring" />
+    <!-- 指定资源编码类型 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" /> 
+	<!-- 指定每次请求到达，重新加载资源文件 -->
+    <constant name="struts.i18n.reload" value="false" />
+    <!-- 指定每次配置文件更改后，自动重新加载 -->
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <package name="default" extends="struts-default">
+        <action name="uncheckList" class="userAction" method="unchekcList">
+            <result name="success" >index.jsp</result>
+        </action>
+    </package>
+    <package name="json" extends="json-default">
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+        <action name="login" class="userAction" method="login"> 
+            <result name="success" type="json" >  
+                   <param name="includeProperties">state,id</param>
+                   <param name="ignoreHierarchy">false</param>
+            </result>  
+        </action>
+        <action name="register" class="userAction" method="register">
+            <result name="success" type="json">
+                <param name="includeProperties">state</param>
+                <param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        <action name="upLoad" class="userAction" method="upLoad">
+	        <result name="success" type="json">
+		        <param name="includeProperties">state</param>
+		        <param name="ignoreHierarchy">false</param>
+	        </result>
+        </action>
+        <action name="addConcern" class="userAction" method="addConcern">
+	        <result name="success" type="json">
+		        <param name="includeProperties">state</param>
+		        <param name="ignoreHierarchy">false</param>
+	        </result>
+        </action>
+        <action name="cancelConcern" class="userAction" method="cancelConcern">
+	        <result name="success" type="json">
+		        <param name="includeProperties">state</param>
+		        <param name="ignoreHierarchy">false</param>
+	        </result>
+        </action>
+    </package>
+</struts>    

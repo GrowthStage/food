@@ -61,6 +61,12 @@ public class UserAction implements Action {
 	public void setUid1(int uid1) {
 		this.uid1 = uid1;
 	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public String getrName() {
 		return rName;
 	}
@@ -88,12 +94,12 @@ public class UserAction implements Action {
 	public String login()throws Exception{
 		System.out.print(name+passwd);
 		if(userService.login(name, passwd) == null){
-			setState(0);
+			setState("succeed");
 			setUid(0);
 		}
 		else{
 			User user = (User)userService.login(name, passwd);
-			setState(1);
+			setState("succeed");
 			setUid(user.getId().getUid());
 		}
 		return SUCCESS;
@@ -101,34 +107,34 @@ public class UserAction implements Action {
 	public String register()throws Exception{
 		System.out.print(name+passwd);
 		if(userService.register(name, passwd)){
-			setState(1);
+			setState("succeed");
 		}
 		else
-			setState(0);
+			setState("failed");
 		return SUCCESS;
 	}
 	public String upLoad()throws Exception{
 		System.out.print(uid+rName+content+picUrl);
 		if(userService.upLoad(uid, rName, content, picUrl))
-			setState(1);
+			setState("succeed");
 		else
-			setState(0);
+			setState("failed");
 		return SUCCESS;
 	}
 	public String addConcern()throws Exception{
 		System.out.print(uid+uid1);
 		if(userService.addConcern(uid, uid1))
-			setState(1);
+			setState("succeed");
 		else
-			setState(0);
+			setState("failed");
 		return SUCCESS;
 	}
 	public String cancel()throws Exception{
 		System.out.print(uid+uid1);
 		if(userService.cancelConcern(uid, uid1))
-			setState(1);
+			setState("succeed");
 		else
-			setState(0);
+			setState("failed");
 		return SUCCESS;
 	}
 	public String unCheckList()throws Exception{
@@ -140,9 +146,9 @@ public class UserAction implements Action {
 	public String check()throws Exception{
 		System.out.print(rid);
 		if(userService.check(rid))
-			setState(1);
+			setState("succeed");
 		else
-			setState(0);
+			setState("failed");
 		return SUCCESS;
 	}
 }
